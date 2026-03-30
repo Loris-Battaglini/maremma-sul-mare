@@ -1,0 +1,78 @@
+body{overflow: auto;overflow-x: hidden;margin:0;padding: 0;font-family: 'Raleway', sans-serif;font-size:14px;color:#000;background-color:#fff;}
+a {cursor: pointer;}
+a:visited{color:#000;text-decoration: none;}
+a:link{color:#000;text-decoration: none;}
+a:hover{color:#009ee0;text-decoration: none;}
+
+.SetGrafica{background-image: url('http://www.hotelmaremmamare.com/ink/css/img/setGrafica.png');background-repeat: no-repeat;}
+
+h1{color:#009ee0;width:960px;height:60px;line-height:60px;font-size:24px;font-weight:normal;}
+h2{color:#009ee0;width:960px;height:30px;line-height:30px;font-size:20px;font-weight:normal;}
+
+.Galleria{width:990px;margin-top:10px;margin-left:-30px;float:left;clear:both;}
+.GalleriaFoto{width:300px;height:200px;margin-left:30px;margin-bottom:30px;float:left;}
+
+#Logo{position:absolute;top:40px;left:50%;width:310px;height:61px;margin-left:-485px;background-position:0 0;}
+#Linguaggio{position:absolute;top:10px;left:50%;width:100px;height:20px;margin-left:380px;text-align:right;display:none}
+#Facebook{position:absolute;top:56px;left:50%;width:23px;height:23px;margin-left:370px;background-position:0 -146px;}
+#Twitter{position:absolute;top:56px;left:50%;width:23px;height:23px;margin-left:342px;background-position:0 -302px;}
+#Instagram{position:absolute;top:59px;left:50%;width:79px;height:27px;margin-left:401px;background-position:-23px -146px;}
+
+
+#Privacy{color:#fff;font-size:12px;position:absolute;margin-top:80px;width:300px;height:150px;margin-left:65px}
+
+a.LinkBianco:Link {color:#fff;}
+a.LinkBianco:Visited {color:#fff;}
+a.LinkBianco:Hover {color:#000;}
+
+a.LinkCeleste:Link {color:#009de0;}
+a.LinkCeleste:Visited {color:#009de0;}
+a.LinkCeleste:Hover {color:#009de0;}
+
+#Menu{font-size:11px;position:absolute;left:0;width:100%;height:41px;line-height:41px;background:#009ee0;text-align:center;color:#fff;z-index:999}
+.Menu{margin-left:3px;margin-right:3px;}
+a.Menu:Link {color:#fff;}
+a.Menu:Visited {color:#fff;}
+a.Menu:Hover {color:#000;}
+
+#Molliche{position:absolute;top:120px;left:50%;width:960px;height:20px;line-height:20px;margin-left:-480px;font-size:10px;}
+
+#Slogan-it{position:absolute;top:171px;left:50%;width:237px;height:237px;margin-left:243px;background-image: url('../../../../../ink/img/slogan-it.png');z-index:9999999999;}
+
+
+.Records{width:1000px;margin-top:10px;margin-left:-14px;float:left;clear:both;}
+.Record{width:316px;height:310px;margin-left:14px;margin-bottom:30px;float:left;color:#009de0;}
+.RecordFoto{width:300px;height:200px;margin-left:8px;float:left;}
+.RecordFascia{width:316px;height:41px;margin-top:139px;position:absolute;background:#009de0;}
+.RecordFasciaTit{width:316px;height:41px;line-height:41px;color:#fff;text-indent:8px;font-size:16px;}
+.RecordTesto{width:300px;height:80px;margin-left:8px;margin-top:210px;position:absolute;color:#000}
+.RecordScopri{width:300px;height:20px;margin-left:8px;margin-top:290px;position:absolute;text-align:right;}
+
+.GRecordsG{width:968px;margin-top:10px;margin-left:-8px;float:left;clear:both;}
+.GRecord{width:976px;height:360px;margin-left:0px;margin-bottom:30px;float:left;color:#fff;}
+.GRecordFoto{width:960px;height:250px;margin-left:8px;float:left;}
+.GRecordFoto2{width:960px;height:200px;margin-left:8px;float:left;}
+.GRecordFascia{width:976px;height:41px;margin-top:189px;position:absolute;background:#009de0;}
+.GRecordFasciaTit{width:976px;height:41px;line-height:41px;color:#fff;text-indent:8px;font-size:16px;}
+.GRecordScopri{width:960px;height:20px;margin-left:8px;margin-top:200px;position:absolute;text-align:right;}
+
+.PRecords{width:976px;margin-top:10px;margin-left:-8px;float:left;clear:both;}
+.PRecord{width:474px;height:414px;margin-left:12px;margin-bottom:30px;float:left;color:#009de0;}
+.PRecordFoto{width:458px;height:304px;margin-left:8px;float:left;}
+.PRecordFascia{width:474px;height:41px;margin-top:243px;position:absolute;background:#009de0;}
+.PRecordFasciaTit{width:474px;height:41px;line-height:41px;color:#fff;text-indent:8px;font-size:16px;}
+.PRecordTesto{width:458px;height:80px;margin-left:8px;margin-top:320px;position:absolute;color:#000}
+.PRecordScopri{width:458px;height:20px;margin-left:8px;margin-top:380px;position:absolute;text-align:right;}
+
+
+
+.FloatDx{float:right;}
+
+
+
+
+
+img {border:0px;}
+
+
+

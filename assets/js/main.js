@@ -43,7 +43,7 @@
       return;
     }
 
-    sliderTimerId = window.setInterval(nextSlide, 5000);
+    sliderTimerId = window.setInterval(nextSlide, 7000);
   };
 
   const stopSlider = () => {

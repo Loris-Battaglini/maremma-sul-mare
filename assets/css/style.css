@@ -771,6 +771,11 @@ p {
   background: radial-gradient(circle at 30% 30%, #feda75 0%, #d62976 35%, #962fbf 60%, #4f5bd5 100%);
 }
 
+.social-icon-instagram svg {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
 .social-icon-twitter {
   background: #1da1f2;
 }

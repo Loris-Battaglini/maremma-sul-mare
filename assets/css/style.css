@@ -364,7 +364,7 @@ p {
 }
 
 .intro-grid {
-  gap: 2.8rem;
+  gap: 2rem;
   align-items: start;
   background: #fff;
   border: 1px solid rgba(18, 49, 68, 0.08);
@@ -380,6 +380,16 @@ p {
 
 .intro-grid article {
   padding: 0;
+}
+
+.intro-grid aside {
+  margin-top: 2rem;
+  width: min(20rem, 100%);
+  max-width: 20rem;
+}
+
+.intro-grid aside h3 {
+  font-size: clamp(1.5rem, 2vw + 0.2rem, 1.85rem);
 }
 
 .intro-grid article h2 {
@@ -410,15 +420,15 @@ p {
 }
 
 .intro-grid aside {
-  padding: 1.2rem 1rem 1.1rem;
+  padding: 1.4rem 1.2rem 1.2rem;
   width: min(22rem, 100%);
   max-width: 22rem;
   border-radius: var(--radius-lg);
-  background: #f7fbfd;
-  border: 1px solid rgba(18, 49, 68, 0.08);
-  box-shadow: 0 12px 26px rgba(18, 49, 68, 0.04);
-  align-self: start;
-  margin-top: 4rem;
+  background: #eef7fb;
+  border: 1px solid rgba(18, 49, 68, 0.12);
+  box-shadow: 0 14px 28px rgba(18, 49, 68, 0.05);
+  align-self: end;
+  margin-top: 0;
 }
 
 .intro-grid aside h3 {
@@ -427,10 +437,20 @@ p {
   color: var(--text);
   font-weight: 700;
   text-align: left;
+  padding-inline-start: calc(1.3rem + 1.2rem);
 }
 
 .intro-grid .feature-list {
   gap: 1.4rem;
+}
+
+.intro-grid .strength-panel {
+  margin-top: 1.8rem;
+  background: #eef7fb;
+  border: 1px solid rgba(18, 49, 68, 0.12);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 28px rgba(18, 49, 68, 0.05);
+  padding: 1.4rem 1.2rem 1.2rem;
 }
 
 .intro-grid .feature-list li {
@@ -846,6 +866,33 @@ p {
     margin: 1rem auto 0;
   }
 
+  .hero-copy {
+    padding-bottom: 1.2rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 2rem;
+  }
+
+  .hero-copy p,
+  .eyebrow {
+    font-size: 0.92rem;
+  }
+
+  .intro-grid {
+    gap: 1.4rem;
+  }
+
+  .intro-grid aside {
+    margin-top: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .tripadvisor-highlight {
+    margin-top: 0.75rem;
+  }
+
   .footer-bottom {
     text-align: center;
   }
@@ -954,6 +1001,19 @@ p {
 
   .intro-grid {
     padding: 2.5rem;
+  }
+
+  .intro-grid aside {
+    padding: 1.4rem 1.2rem 1.2rem;
+    width: min(20rem, 100%);
+    max-width: 20rem;
+    border-radius: var(--radius-lg);
+    background: #eef7fb;
+    border: 1px solid rgba(18, 49, 68, 0.12);
+    box-shadow: 0 14px 28px rgba(18, 49, 68, 0.05);
+    align-self: end;
+    margin-top: 0;
+    justify-self: end;
   }
 
   .cards-large {

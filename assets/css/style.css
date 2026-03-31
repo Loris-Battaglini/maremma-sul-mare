@@ -889,6 +889,10 @@ p {
     max-width: none;
   }
 
+  .intro-grid .strength-panel {
+    margin-top: 0.8rem;
+  }
+
   .tripadvisor-highlight {
     margin-top: 0.75rem;
   }

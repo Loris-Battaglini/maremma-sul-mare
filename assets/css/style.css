@@ -662,10 +662,13 @@ p {
 }
 
 .footer-pro .footer-info .footer-brand {
-  margin-bottom: 0.75rem;
-  font-size: 1.15rem;
+  margin: 0;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #fff;
+  color: #f4e6b7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
 .footer-pro .footer-col h3 {
@@ -705,7 +708,7 @@ p {
 }
 
 .footer-pro .footer-quote {
-  margin-top: 1rem;
+  margin: 1rem 0 0;
   border: none;
   color: #fff;
   background: #009cff;
@@ -714,7 +717,9 @@ p {
   border-radius: 999px;
   min-width: 12rem;
   text-align: center;
-  align-self: center;
+  display: inline-flex;
+  justify-content: center;
+  align-self: flex-start;
 }
 
 .footer-pro .footer-quote:hover {
@@ -831,6 +836,11 @@ p {
   .footer-pro .footer-col {
     align-items: center;
     text-align: center;
+  }
+
+  .footer-pro .footer-quote {
+    align-self: center;
+    margin: 1rem auto 0;
   }
 
   .footer-bottom {

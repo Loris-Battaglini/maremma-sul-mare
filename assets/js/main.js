@@ -108,6 +108,130 @@
     yearNode.textContent = String(new Date().getFullYear());
   }
 
+  const mountMapFallback = (mapNode, fallbackAddress) => {
+    if (!mapNode || mapNode.dataset.mapMounted === "true") {
+      return;
+    }
+
+    const query = encodeURIComponent(fallbackAddress || "Lungomare Harmine 42, Montalto Marina");
+    mapNode.innerHTML = `<iframe title="Mappa Maremma sul Mare" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${query}&output=embed"></iframe>`;
+    mapNode.dataset.mapMounted = "true";
+  };
+
+  const initGoogleMap = (mapNode) => {
+    if (!mapNode || mapNode.dataset.mapStarted === "true") {
+      return;
+    }
+
+    mapNode.dataset.mapStarted = "true";
+
+    const lat = Number.parseFloat(mapNode.dataset.lat || "");
+    const lng = Number.parseFloat(mapNode.dataset.lng || "");
+    const hasCoordinates = Number.isFinite(lat) && Number.isFinite(lng);
+    const fallbackAddress = mapNode.dataset.address || (hasCoordinates ? `${lat},${lng}` : "Lungomare Harmine 42, Montalto Marina");
+    const markerTitle = mapNode.dataset.title || "Maremma sul Mare";
+
+    const fallbackToIframe = () => {
+      mountMapFallback(mapNode, fallbackAddress);
+    };
+
+    const keyFromMeta = document.querySelector('meta[name="google-maps-api-key"]')?.content?.trim() || "";
+    const keyFromWindow = typeof window.MAREMMA_MAPS_API_KEY === "string" ? window.MAREMMA_MAPS_API_KEY.trim() : "";
+    const apiKey = keyFromWindow || keyFromMeta;
+
+    if (!apiKey || !hasCoordinates) {
+      fallbackToIframe();
+      return;
+    }
+
+    const drawInteractiveMap = () => {
+      if (!window.google || !window.google.maps) {
+        fallbackToIframe();
+        return;
+      }
+
+      mapNode.innerHTML = "";
+      const center = { lat, lng };
+      const map = new window.google.maps.Map(mapNode, {
+        center,
+        zoom: 15,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: true,
+      });
+
+      new window.google.maps.Marker({
+        position: center,
+        map,
+        title: markerTitle,
+      });
+    };
+
+    if (window.google && window.google.maps) {
+      drawInteractiveMap();
+      return;
+    }
+
+    window.addEventListener("maremma:maps-ready", drawInteractiveMap, { once: true });
+    window.addEventListener("maremma:maps-error", fallbackToIframe, { once: true });
+
+    const existingLoader = document.querySelector('script[data-google-maps-loader="maremma"]');
+    if (existingLoader) {
+      return;
+    }
+
+    const callbackName = "__maremmaGoogleMapsReady";
+    window[callbackName] = () => {
+      window.dispatchEvent(new Event("maremma:maps-ready"));
+      try {
+        delete window[callbackName];
+      } catch (_) {
+        window[callbackName] = undefined;
+      }
+    };
+
+    const script = document.createElement("script");
+    script.dataset.googleMapsLoader = "maremma";
+    script.async = true;
+    script.defer = true;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&callback=${callbackName}&loading=async`;
+    script.addEventListener(
+      "error",
+      () => {
+        window.dispatchEvent(new Event("maremma:maps-error"));
+      },
+      { once: true }
+    );
+
+    document.head.appendChild(script);
+  };
+
+  const mapNode = document.querySelector("[data-map-canvas]");
+  if (mapNode) {
+    if ("IntersectionObserver" in window) {
+      const mapObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            initGoogleMap(mapNode);
+            mapObserver.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.16,
+          rootMargin: "0px 0px -8% 0px",
+        }
+      );
+
+      mapObserver.observe(mapNode);
+    } else {
+      initGoogleMap(mapNode);
+    }
+  }
+
   const bookingForm = document.querySelector("#booking-form");
   if (!bookingForm) {
     return;

@@ -237,9 +237,50 @@
     return;
   }
 
+  const requestTypeSelect = bookingForm.querySelector("#request-type");
   const arrivalInput = bookingForm.querySelector("#arrival-date");
   const departureInput = bookingForm.querySelector("#departure-date");
+  const guestsInput = bookingForm.querySelector("#guests-count");
+  const hotelOnlyGroups = Array.from(bookingForm.querySelectorAll("[data-hotel-only]"));
   const hintNode = bookingForm.querySelector(".form-hint");
+
+  const syncHotelOnlyFields = () => {
+    const isHotelRequest = requestTypeSelect?.value === "Hotel";
+    bookingForm.classList.toggle("is-hotel-request", isHotelRequest);
+
+    hotelOnlyGroups.forEach((group) => {
+      group.hidden = !isHotelRequest;
+
+      group.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.disabled = !isHotelRequest;
+      });
+    });
+
+    if (arrivalInput) {
+      arrivalInput.required = isHotelRequest;
+      if (!isHotelRequest) {
+        arrivalInput.value = "";
+      }
+    }
+
+    if (departureInput) {
+      departureInput.required = isHotelRequest;
+      if (!isHotelRequest) {
+        departureInput.value = "";
+      }
+    }
+
+    if (guestsInput) {
+      if (!isHotelRequest) {
+        guestsInput.value = "2";
+      }
+    }
+  };
+
+  if (requestTypeSelect) {
+    requestTypeSelect.addEventListener("change", syncHotelOnlyFields);
+    syncHotelOnlyFields();
+  }
 
   const today = new Date();
   const todayAsISO = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
@@ -265,6 +306,10 @@
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    const formData = new FormData(bookingForm);
+    const requestType = String(formData.get("request-type") || "");
+    const isHotelRequest = requestType === "Hotel";
+
     if (!bookingForm.checkValidity()) {
       bookingForm.reportValidity();
       if (hintNode) {
@@ -273,7 +318,7 @@
       return;
     }
 
-    if (arrivalInput && departureInput && arrivalInput.value > departureInput.value) {
+    if (isHotelRequest && arrivalInput && departureInput && arrivalInput.value > departureInput.value) {
       if (hintNode) {
         hintNode.textContent = "La data di partenza deve essere successiva all'arrivo.";
       }
@@ -281,8 +326,8 @@
       return;
     }
 
-    const formData = new FormData(bookingForm);
     const guestName = String(formData.get("guest-name") || "");
+    const requestTypeForMail = String(formData.get("request-type") || "");
     const arrivalDate = String(formData.get("arrival-date") || "");
     const departureDate = String(formData.get("departure-date") || "");
     const guestsCount = String(formData.get("guests-count") || "");
@@ -293,10 +338,11 @@
     const body = encodeURIComponent(
       [
         `Nome: ${guestName}`,
+        `Richiesta per: ${requestTypeForMail || "Non specificato"}`,
         `Email: ${guestEmail}`,
-        `Arrivo: ${arrivalDate}`,
-        `Partenza: ${departureDate}`,
-        `Ospiti: ${guestsCount}`,
+        `Arrivo: ${isHotelRequest ? arrivalDate : "Non richiesto"}`,
+        `Partenza: ${isHotelRequest ? departureDate : "Non richiesto"}`,
+        `Ospiti: ${isHotelRequest ? guestsCount : "Non richiesto"}`,
         "",
         "Messaggio:",
         guestNote || "Nessuna nota aggiuntiva",

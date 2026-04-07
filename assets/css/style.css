@@ -139,6 +139,13 @@ p {
   background: rgba(255, 255, 255, 0.7);
 }
 
+.btn-whatsapp {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.42);
+  background: linear-gradient(120deg, #1f9c5c 0%, #138a50 55%, #0f7a47 100%);
+  box-shadow: 0 14px 28px rgba(15, 101, 62, 0.3);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -1429,6 +1436,24 @@ p {
 
   .hero-layout {
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.9fr);
+  }
+
+  .hero-actions .btn-hero-booking {
+    display: none;
+  }
+
+  .hero-copy {
+    max-width: min(50rem, 100%);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .hero-copy h1,
+  .hero-copy p {
+    text-shadow: 0 10px 20px rgba(4, 25, 40, 0.5);
   }
 
   .broken-grid {

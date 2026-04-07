@@ -113,7 +113,7 @@
       return;
     }
 
-    const query = encodeURIComponent(fallbackAddress || "Lungomare Harmine 42, Montalto Marina");
+    const query = encodeURIComponent(fallbackAddress || "Hotel Maremma, Lungomare Harmine, 42, 01014 Montalto Marina VT");
     mapNode.innerHTML = `<iframe title="Mappa Maremma sul Mare" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${query}&output=embed"></iframe>`;
     mapNode.dataset.mapMounted = "true";
   };
@@ -128,7 +128,7 @@
     const lat = Number.parseFloat(mapNode.dataset.lat || "");
     const lng = Number.parseFloat(mapNode.dataset.lng || "");
     const hasCoordinates = Number.isFinite(lat) && Number.isFinite(lng);
-    const fallbackAddress = mapNode.dataset.address || (hasCoordinates ? `${lat},${lng}` : "Lungomare Harmine 42, Montalto Marina");
+    const fallbackAddress = mapNode.dataset.address || (hasCoordinates ? `${lat},${lng}` : "Hotel Maremma, Lungomare Harmine, 42, 01014 Montalto Marina VT");
     const markerTitle = mapNode.dataset.title || "Maremma sul Mare";
 
     const fallbackToIframe = () => {

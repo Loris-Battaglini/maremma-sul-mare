@@ -35,7 +35,7 @@
         <a href="./Ristorante%20sul%20mare.html">Ristorante</a>
         <a href="./Stabilimento%20balneare%20a%20Montalto.html">Spiaggia</a>
         <a class="is-current" href="./contatti-coordinate.html">Contatti</a>
-        <a class="nav-cta" href="./index.html#booking">Prenota ora</a>
+        <a class="nav-cta" href="#booking">Prenota ora</a>
       </nav>
     </div>
   </header>
@@ -55,7 +55,7 @@
         </p>
         <div class="inner-actions">
           <a class="btn btn-primary" href="tel:+390766802844">Chiama ora</a>
-          <a class="btn btn-ghost" href="./index.html#booking">Vai al form</a>
+          <a class="btn btn-ghost" href="#booking">Vai al form</a>
         </div>
       </div>
     </section>
@@ -64,7 +64,7 @@
       <div class="container contact-hub-layout">
         <aside class="hub-contact reveal">
           <h3>Contatti e coordinate essenziali</h3>
-          <p><strong>Indirizzo</strong><br>Lungomare Harmine 42, 01014 Montalto Marina (VT)</p>
+          <p><strong>Indirizzo</strong><br>Hotel Maremma, Lungomare Harmine, 42, 01014 Montalto Marina VT</p>
           <p><strong>Distanze smart</strong><br>Spiaggia: 1 min | Lungomare: 0 min | Centro servizi: pochi passi</p>
           <p><a href="tel:+390766802844">+39 0766 802844</a></p>
           <p><a href="tel:+393484744593">+39 348 4744593</a></p>
@@ -76,13 +76,81 @@
               data-map-canvas
               data-lat="42.3492"
               data-lng="11.6114"
-              data-title="Maremma sul Mare"
-              data-address="Lungomare Harmine 42, 01014 Montalto Marina"
+              data-title="Hotel Maremma"
+              data-address="Hotel Maremma, Lungomare Harmine, 42, 01014 Montalto Marina VT"
             ></div>
           </div>
-          <a class="link-arrow" href="https://maps.google.com/?q=Lungomare+Harmine+42+Montalto+Marina" target="_blank" rel="noopener noreferrer">Apri su Google Maps</a>
-          <a class="link-arrow" href="./index.html#booking">Prenotazione rapida</a>
+          <a class="link-arrow" href="https://maps.google.com/?q=Hotel+Maremma+Lungomare+Harmine+42+01014+Montalto+Marina+VT" target="_blank" rel="noopener noreferrer">Apri su Google Maps</a>
+          <a class="link-arrow" href="#booking">Prenotazione rapida</a>
         </aside>
+      </div>
+    </section>
+
+    <section class="section section-booking" id="booking">
+      <div class="container booking-layout booking-layout--compact">
+        <article class="booking-copy reveal">
+          <p class="kicker kicker-dark">Prenota da Contatti</p>
+          <h2>Invia la richiesta direttamente da questa pagina.</h2>
+          <p>
+            Seleziona il servizio e compila il form: il team Maremma ti ricontatta con disponibilita,
+            dettagli e proposta dedicata.
+          </p>
+          <ul class="booking-services-list">
+            <li>Hotel: soggiorni, camere e periodi vacanza</li>
+            <li>Ristorante: tavolo, pranzo, cena o evento</li>
+            <li>Informazioni generali e assistenza rapida</li>
+          </ul>
+          <div class="booking-links">
+            <a class="btn btn-primary" href="tel:+390766802844">Chiama ora</a>
+            <a class="btn btn-ghost-dark" href="https://wa.me/393484744593" target="_blank" rel="noopener noreferrer">Scrivi su WhatsApp</a>
+          </div>
+        </article>
+
+        <form class="booking-form reveal" id="booking-form" novalidate>
+          <label for="guest-name">Nome e cognome</label>
+          <input id="guest-name" name="guest-name" type="text" autocomplete="name" required>
+
+          <label for="request-type">Richiesta per</label>
+          <select id="request-type" name="request-type" required>
+            <option value="">Seleziona il servizio</option>
+            <option value="Hotel">Hotel</option>
+            <option value="Ristorante">Ristorante</option>
+            <option value="Informazioni generali">Informazioni generali</option>
+          </select>
+
+          <div class="form-row" data-hotel-only>
+            <div>
+              <label for="arrival-date">Arrivo</label>
+              <input id="arrival-date" name="arrival-date" type="date">
+            </div>
+            <div>
+              <label for="departure-date">Partenza</label>
+              <input id="departure-date" name="departure-date" type="date">
+            </div>
+          </div>
+
+          <div class="form-row form-row-stack">
+            <div data-hotel-only>
+              <label for="guests-count">Ospiti</label>
+              <select id="guests-count" name="guests-count">
+                <option value="2">2 ospiti</option>
+                <option value="3">3 ospiti</option>
+                <option value="4">4 ospiti</option>
+                <option value="5">5 ospiti</option>
+              </select>
+            </div>
+            <div class="form-full">
+              <label for="guest-email">Email</label>
+              <input id="guest-email" name="guest-email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <label for="guest-note">Messaggio</label>
+          <textarea id="guest-note" name="guest-note" rows="4" placeholder="Preferenze, richieste speciali o dettagli utili..."></textarea>
+
+          <button type="submit" class="btn btn-primary btn-submit">Invia richiesta</button>
+          <p class="form-hint">La richiesta apre la tua email con i dati gia compilati.</p>
+        </form>
       </div>
     </section>
   </main>
@@ -96,7 +164,7 @@
   </footer>
 
   <div class="floating-dock" aria-label="Azioni rapide">
-    <a href="./index.html#booking">Prenota</a>
+    <a href="#booking">Prenota</a>
     <a href="tel:+390766802844">Chiama</a>
   </div>
 </body>

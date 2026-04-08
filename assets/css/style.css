@@ -437,7 +437,7 @@ p {
 
 .story-copy {
   position: relative;
-  z-index: 3;
+  z-index: 0;
   padding: clamp(1.4rem, 3vw, 2.3rem);
   border-radius: var(--radius-lg);
   background: var(--glass);

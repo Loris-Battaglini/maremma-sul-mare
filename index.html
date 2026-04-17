@@ -79,9 +79,11 @@
       <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
         <defs>
           <linearGradient id="wave-gradient-a" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#0a3652"></stop>
-            <stop offset="50%" stop-color="#1b6b8f"></stop>
-            <stop offset="100%" stop-color="#d8a46e"></stop>
+            <stop offset="0%" stop-color="#f0eae1"></stop>
+            <stop offset="22%" stop-color="#efe9de"></stop>
+            <stop offset="46%" stop-color="#f3f6f9"></stop>
+            <stop offset="72%" stop-color="#f5f8fb"></stop>
+            <stop offset="100%" stop-color="#f6f9fc"></stop>
           </linearGradient>
         </defs>
         <path fill="url(#wave-gradient-a)" d="M0,92L80,106.7C160,121,320,149,480,149.3C640,149,800,121,960,96C1120,71,1280,49,1360,37.3L1440,26L1440,181L1360,181C1280,181,1120,181,960,181C800,181,640,181,480,181C320,181,160,181,80,181L0,181Z"></path>
@@ -107,21 +109,33 @@
 
         <div class="story-collage reveal" id="suite">
           <figure class="story-card story-card-a">
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80" alt="Suite luminosa con atmosfera premium" loading="lazy">
+            <img src="assets/img/premium/suite-main.jpg" alt="Camera matrimoniale in stile marino" loading="lazy">
           </figure>
           <figure class="story-card story-card-b">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80" alt="Costa e mare al tramonto" loading="lazy">
+            <img src="assets/img/premium/risto-1.jpg" alt="Tavolo del ristorante vista mare" loading="lazy">
           </figure>
           <figure class="story-card story-card-c">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80" alt="Esperienza ristorante in stile contemporaneo" loading="lazy">
+            <img src="assets/img/premium/beach-1.jpg" alt="Zona relax dello stabilimento balneare" loading="lazy">
           </figure>
           <figure class="story-card story-card-d">
-            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1400&q=80" alt="Momento relax fronte mare" loading="lazy">
+            <img src="assets/img/premium/sunset-1.jpg" alt="Tramonto sulla spiaggia di Montalto Marina" loading="lazy">
           </figure>
           <span class="story-chip">Postcards Edition</span>
         </div>
       </div>
     </section>
+    <div class="section-wave section-wave-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="wave-gradient-b" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f4f8fc"></stop>
+            <stop offset="58%" stop-color="#f6f1e8"></stop>
+            <stop offset="100%" stop-color="#f7f2e9"></stop>
+          </linearGradient>
+        </defs>
+        <path fill="url(#wave-gradient-b)" d="M0,92L80,106.7C160,121,320,149,480,149.3C640,149,800,121,960,96C1120,71,1280,49,1360,37.3L1440,26L1440,181L1360,181C1280,181,1120,181,960,181C800,181,640,181,480,181C320,181,160,181,80,181L0,181Z"></path>
+      </svg>
+    </div>
 
     <section class="section section-immersive" id="experiences">
       <div class="container section-head reveal">
@@ -187,7 +201,7 @@
 
           <label for="request-type">Richiesta per</label>
           <select id="request-type" name="request-type" required>
-            <option value="">Seleziona il servizio</option>
+            <option value="" disabled selected hidden>Seleziona il servizio</option>
             <option value="Hotel">Hotel</option>
             <option value="Ristorante">Ristorante</option>
             <option value="Informazioni generali">Informazioni generali</option>
@@ -208,6 +222,7 @@
             <div data-hotel-only>
               <label for="guests-count">Ospiti</label>
               <select id="guests-count" name="guests-count">
+                <option value="1">1 ospite</option>
                 <option value="2">2 ospiti</option>
                 <option value="3">3 ospiti</option>
                 <option value="4">4 ospiti</option>

@@ -113,6 +113,7 @@ p {
   text-transform: uppercase;
   font-size: 0.72rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  overflow: hidden;
 }
 
 .btn:hover,
@@ -123,6 +124,8 @@ p {
 
 .btn-primary {
   color: #143249;
+  border-color: rgba(167, 113, 70, 0.45);
+  background-color: #e9bc89;
   background: linear-gradient(115deg, #ffe5b7 0%, #e8bc89 42%, #d49860 100%);
   box-shadow: 0 14px 28px rgba(188, 126, 73, 0.32);
 }
@@ -411,10 +414,23 @@ p {
   line-height: 0;
 }
 
+.section-wave:not(.section-wave-bottom) {
+  margin-bottom: -1px;
+}
+
+.section-wave:not(.section-wave-bottom) svg {
+  margin-bottom: -1px;
+}
+
 .section-wave svg {
   width: 100%;
   height: clamp(3.4rem, 8vw, 7rem);
   display: block;
+}
+
+.section-wave-bottom {
+  margin-top: -1px;
+  transform: rotate(180deg);
 }
 
 .section {
@@ -460,7 +476,7 @@ p {
 
 .story-collage {
   position: relative;
-  min-height: clamp(26rem, 48vw, 38rem);
+  min-height: clamp(25.5rem, 46vw, 36rem);
 }
 
 .story-collage figure {
@@ -484,33 +500,33 @@ p {
 
 .story-card-a {
   width: min(74%, 32rem);
-  height: min(58%, 22.5rem);
-  left: 5%;
+  aspect-ratio: 74 / 58;
+  left: 4%;
   top: 8%;
   transform: rotate(-2.3deg);
 }
 
 .story-card-b {
-  width: min(42%, 14rem);
-  height: min(34%, 12.5rem);
-  right: 6%;
-  top: 5%;
+  width: min(44%, 15rem);
+  aspect-ratio: 44 / 34;
+  right: 3%;
+  top: 4%;
   transform: rotate(4.1deg);
 }
 
 .story-card-c {
-  width: min(42%, 14rem);
-  height: min(34%, 12.5rem);
-  left: 0;
-  bottom: 6%;
+  width: min(41%, 14rem);
+  aspect-ratio: 41 / 34;
+  left: 1%;
+  bottom: 8%;
   transform: rotate(-5deg);
 }
 
 .story-card-d {
-  width: min(52%, 18rem);
-  height: min(38%, 14rem);
-  right: 8%;
-  bottom: 0;
+  width: min(53%, 18.5rem);
+  aspect-ratio: 53 / 38;
+  right: 4%;
+  bottom: 12%;
   transform: rotate(3deg);
   z-index: 2;
 }
@@ -1674,40 +1690,36 @@ p {
   }
 
   .story-collage {
-    min-height: 24rem;
+    min-height: 24.2rem;
   }
 
   .story-card-a {
-    width: 82%;
-    height: 56%;
-    left: 0;
+    width: 75%;
+    left: 4%;
     top: 8%;
   }
 
   .story-card-b {
-    width: 46%;
-    height: 30%;
-    right: 0;
-    top: 4%;
+    width: 34%;
+    right: 3%;
+    top: 3%;
   }
 
   .story-card-c {
-    width: 45%;
-    height: 30%;
-    left: 3%;
-    bottom: 8%;
+    width: 35%;
+    left: 4%;
+    bottom: 5%;
   }
 
   .story-card-d {
-    width: 56%;
-    height: 34%;
-    right: 4%;
-    bottom: 0;
+    width: 46%;
+    right: 5%;
+    bottom: 2%;
   }
 
   .story-chip {
     left: 34%;
-    bottom: 36%;
+    bottom: 28%;
   }
 
   .floating-dock {
